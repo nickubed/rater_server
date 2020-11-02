@@ -1,5 +1,6 @@
 # Villager Rater
----
+
+
 ## Mission:
 After watching ProZD's "Let's Rank All 391 Animal Crossing Villagers" I realized "hey. this is something everyone should do. I'd love to know where each villager *actually* stands in popularity, not just vaguely anecdotally."
 
