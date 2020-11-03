@@ -17,7 +17,6 @@ router.post('/new', (req, res) => {
     db.user.findOne({where: {id: req.body.user}})
     .then(user => {
         async.forEach(choices, (choice, done) => {
-            // console.log(choice)
             db.villager.findOrCreate({
                 where: {
                     name: choice.name
@@ -29,9 +28,8 @@ router.post('/new', (req, res) => {
                     apiId: choice.apiId
                 }
             }).then((villager, wasCreated) => {
-                console.log(villager[0].id)
                 user.addVillager(villager[0], { through: { grade: choice.grade }})
-                .then(success => {
+                .then(() => {
                     done()
                 })
             .catch(err => {
@@ -44,7 +42,6 @@ router.post('/new', (req, res) => {
             res.send({message: 'Error'})
         })
         }, () => {
-            console.log('Holy shit')
             res.send({message: 'success'})
         })
     })

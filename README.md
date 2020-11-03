@@ -18,6 +18,7 @@ Stretch Goals:
 - Data visualization. Allow users (once logged in) to see what the general consensus is on any given villager. Main page for logged in users should be a general "leaderboard" representing where, on average, villagers rank.
 
 ## How do we get there?
-- Create an interface for users to see one villager at a time, and provide them a rank.
-- Set up a DB to carry villager name, img, and rating. This will be a SQL table: Users, Villagers, Villagers_Users.
-- Send the villager data to a DB, so that ultimately we may plot each villagers average.
+- ~~Create an interface for users to see one villager at a time, and provide them a rank.~~
+- ~~Set up a DB to carry villager name, img, and rating. This will be a SQL table: Users, Villagers, Villagers_Users.~~
+- ~~Send the villager data to a DB, so that ultimately we may plot each villagers average.~~
+- Set up login, prompt user to log in either once they've entered the site, or once they have rated every villager and want to post their decisions
