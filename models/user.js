@@ -13,8 +13,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
 
-  user.prototype.validPassword = function(typedInPassword) {
-    let correctPassword = bcrypt.compareSync(typedInPassword, this.password)
+  user.prototype.validPassword = function(user, typedInPassword) {
+    let correctPassword = bcrypt.compareSync(typedInPassword, user.password)
     return correctPassword
   }
   user.init({
