@@ -19,6 +19,10 @@ router.post('/login', (req, res) => {
         })
         res.send({token})
     })
+    .catch(err => {
+        console.log('Error attempting to login: ', err)
+        res.status(503).send({message: 'Database not responding.'})
+    })
 })
 
 router.post('/signup', (req, res) => {

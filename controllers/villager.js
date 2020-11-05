@@ -12,7 +12,6 @@ router.get('/', (req, res) => {
 })
 
 router.post('/new', (req, res) => {
-    // console.log('Hello', req.body.userChoice)
     let choices = req.body.userChoice
     db.user.findOne({where: {id: req.body.user}})
     .then(user => {
