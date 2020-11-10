@@ -11,6 +11,17 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/:id', (req, res) => {
+    db.user.findOne({where: {id: req.params.id}, include: [db.villager]})
+    .then(user => {
+        res.send(user.villagers)
+    })
+    .catch(err => {
+        console.log(err)
+        res.send({message: 'error fetching user'})
+    })
+})
+
 router.post('/new', (req, res) => {
     let choices = req.body.userChoice
     db.user.findOne({where: {id: req.body.user}})
