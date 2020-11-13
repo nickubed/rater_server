@@ -78,9 +78,16 @@ router.post('/new', (req, res) => {
 })
 
 router.post('/:id', (req, res) => {
-    db.user.findOne({where: {id: req.body.user}})
-    .then(user => {
-        
+    db.usersVillagers.findOne({where: {userId: req.body.user, villagerId: req.params.id}})
+    .then(relation => {
+        relation.update({grade: req.body.grade})
+        .then(() => {
+            res.send({message: 'success!'})
+        })
+        .catch(err => {
+            console.log(err)
+            res.send({message: 'Error updating grade'})
+        })
     })
 })
 

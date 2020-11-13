@@ -9,8 +9,9 @@ const app = express()
 app.use(cors())
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
-app.use('/villager', require('./controllers/villager'))
 app.use('/auth', require('./controllers/auth'))
+app.use('/profile', require('./controllers/profile'))
+app.use('/villager', require('./controllers/villager'))
 
 app.get('/', (req, res) => {
     res.send('Hello')
