@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/allVillagers', (req, res) => {
+    let manifest = []
     db.villager.findAll({include: [db.user]})
     .then(villagers => {
         villagers.forEach(v => {
@@ -23,9 +24,10 @@ router.get('/allVillagers', (req, res) => {
                 sum += matrix[u.usersVillagers.grade]
                 count++
             })
-            console.log(v.name, 'Average: ', reverseMatrix[Math.round(sum / count)])
+            let average = reverseMatrix[Math.round(sum/count)]
+            manifest.push({v, average})
         })
-        res.send("christ.")
+        res.send(manifest)
     })
 })
 
