@@ -21,4 +21,10 @@ Stretch Goals:
 - ~~Create an interface for users to see one villager at a time, and provide them a rank.~~
 - ~~Set up a DB to carry villager name, img, and rating. This will be a SQL table: Users, Villagers, Villagers_Users.~~
 - ~~Send the villager data to a DB, so that ultimately we may plot each villagers average.~~
-- Set up login, prompt user to log in either once they've entered the site, or once they have rated every villager and want to post their decisions
+- ~~Set up login, prompt user to log in either once they've entered the site, or once they have rated every villager and want to post their decisions~~
+- Refine user-flow, add "edit user" functionality, "delete user" functionality
+- ~~Create display for User's selected villagers, who ranks where!~~
+- ~~Create "display all" to see where villagers rank, on average, to all users~~
+- Create drag & drop functionality for users "first time" experience
+- Create drag & drop functionality for users "view my villager ratings" experience
+- Create "edit villager grade" system.

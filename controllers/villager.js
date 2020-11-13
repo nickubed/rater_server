@@ -77,4 +77,11 @@ router.post('/new', (req, res) => {
     })
 })
 
+router.post('/:id', (req, res) => {
+    db.user.findOne({where: {id: req.body.user}})
+    .then(user => {
+        
+    })
+})
+
 module.exports = router
