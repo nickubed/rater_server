@@ -1,6 +1,5 @@
 require('dotenv').config()
 const async = require('async')
-const jwt = require('jsonwebtoken')
 const db = require('../models')
 const router = require('express').Router()
 
@@ -8,6 +7,39 @@ router.get('/', (req, res) => {
     db.villager.findAll()
     .then(response => {
         res.send(response)
+    })
+})
+
+router.get('/allVillagers', (req, res) => {
+    matrix = {
+        S: 10,
+        A: 9,
+        B: 8,
+        C: 7,
+        D: 6,
+        F: 5
+    }
+    reverseMatrix = {
+        10: 'S',
+        9: 'A',
+        8: 'B',
+        7: 'C',
+        6: 'D',
+        5: 'F'
+    }
+    db.villager.findAll({include: [db.user]})
+    .then(villagers => {
+        // console.log(villagers)
+        villagers.forEach(v => {
+            let sum = 0
+            let count = 0
+            v.users.forEach(u => {
+                sum += matrix[u.usersVillagers.grade]
+                count++
+            })
+            console.log(v.name, 'Average: ', reverseMatrix[Math.round(sum / count)])
+        })
+        res.send("christ.")
     })
 })
 
