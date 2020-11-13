@@ -3,6 +3,9 @@ const async = require('async')
 const db = require('../models')
 const router = require('express').Router()
 
+matrix = { S: 6, A: 5, B: 4, C: 3, D: 2, F: 1 }
+reverseMatrix = { 6: 'S', 5: 'A', 4: 'B', 3: 'C', 2: 'D', 1: 'F' }
+
 router.get('/', (req, res) => {
     db.villager.findAll()
     .then(response => {
@@ -11,25 +14,8 @@ router.get('/', (req, res) => {
 })
 
 router.get('/allVillagers', (req, res) => {
-    matrix = {
-        S: 10,
-        A: 9,
-        B: 8,
-        C: 7,
-        D: 6,
-        F: 5
-    }
-    reverseMatrix = {
-        10: 'S',
-        9: 'A',
-        8: 'B',
-        7: 'C',
-        6: 'D',
-        5: 'F'
-    }
     db.villager.findAll({include: [db.user]})
     .then(villagers => {
-        // console.log(villagers)
         villagers.forEach(v => {
             let sum = 0
             let count = 0
