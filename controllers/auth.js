@@ -4,7 +4,7 @@ let db = require('../models')
 let router = require('express').Router()
 
 router.post('/login', (req, res) => {
-    db.user.findOne({where: {email: req.body.email}})
+    db.user.findOne({where: {email: req.body.email}, include: [db.villager]})
     .then(user => {
         if(!user || !user.password){
             return res.status(404).send({message: 'User Not Found'})

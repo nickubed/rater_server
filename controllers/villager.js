@@ -78,6 +78,7 @@ router.post('/new', (req, res) => {
 })
 
 router.post('/:id', (req, res) => {
+    console.log(req.body)
     db.usersVillagers.findOne({where: {userId: req.body.user, villagerId: req.params.id}})
     .then(relation => {
         relation.update({grade: req.body.grade})
